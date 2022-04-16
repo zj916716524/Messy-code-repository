@@ -36,21 +36,19 @@ def draw_example(ch, src_font, canvas_size, x_offset, y_offset):
 
 data_dir = args.ttf_path
 data_root = pathlib.Path(data_dir)
-# print(data_root)
 
-# all_image_paths = list(data_root.glob('*.ttf*'))
 all_image_paths = list(data_root.glob('*.TTF*'))
+# if you datasets is ttf.please use:
+#all_image_paths = list(data_root.glob('*.ttf*'))
 all_image_paths = [str(path) for path in all_image_paths]
-# print(len(all_image_paths))
-# for i in range(len(all_image_paths)):
-#     print(all_image_paths[i])
+
 
 seq = list()
 
 for (label, item) in zip(range(len(all_image_paths)), all_image_paths):
     print(item)
     src_font = ImageFont.truetype(item, size=args.chara_size)
-    # src_font = ImageFont.truetype(item)
+
     for (chara, cnt) in zip(characters, range(len(characters))):
         try:
             img = draw_example(chara, src_font, args.img_size, (args.img_size - args.chara_size) / 2,
@@ -58,8 +56,7 @@ for (label, item) in zip(range(len(all_image_paths)), all_image_paths):
             path_full = os.path.join(args.save_path, 'id_%d' % label)
             if not os.path.exists(path_full):
                 os.mkdir(path_full)
-            # print(chara)
-            # print(os.path.join(path_full, "%s.png" % (chara)))
+
             img.save(os.path.join(path_full, "%s.png" % (chara)))
         except:
             continue
