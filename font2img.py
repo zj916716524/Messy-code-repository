@@ -6,11 +6,11 @@ import pathlib
 import argparse
 
 parser = argparse.ArgumentParser(description='Obtaining characters from .ttf')
-parser.add_argument('--ttf_path', type=str, default='./FOUR', help='ttf directory')
-parser.add_argument('--chara', type=str, default='./char.txt', help='characters')
-parser.add_argument('--save_path', type=str, default='./four_img', help='images directory')
-parser.add_argument('--img_size', type=int, default='128', help='The size of generated images')
-parser.add_argument('--chara_size', type=int, default='120', help='The size of generated characters')
+parser.add_argument('--ttf_path', type=str, default='./FOUR', help='ttf directory')  # ttf 文件路径 
+parser.add_argument('--chara', type=str, default='./char.txt', help='characters')  # 需要的字符
+parser.add_argument('--save_path', type=str, default='./four_img', help='images directory') # 保存路径
+parser.add_argument('--img_size', type=int, default='128', help='The size of generated images')  #图像大小 
+parser.add_argument('--chara_size', type=int, default='120', help='The size of generated characters')  # 字体大小
 args = parser.parse_args()
 
 file_object = open(args.chara, encoding='utf-8')
